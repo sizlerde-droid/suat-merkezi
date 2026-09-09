@@ -1,0 +1,9 @@
+{
+  "name": "Suat Merkezi",
+  "short_name": "Suat Merkezi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
+  "lang": "tr"
+}
