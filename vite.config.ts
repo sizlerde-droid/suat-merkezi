@@ -66,6 +66,7 @@ function aistudioMediaPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
+    base: '/suat-merkezi/',
     plugins: [react(), tailwindcss(), aistudioMediaPlugin()],
     resolve: {
       alias: {
