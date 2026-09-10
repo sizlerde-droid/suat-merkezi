@@ -4,11 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  desktop:
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+  desktop-windows:
+    runs-on: windows-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,13 +23,11 @@ jobs:
       - name: Build web
         run: npm run build
 
-      - name: Package Electron
-        run: npx electron-builder
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Package Windows
+        run: npx electron-builder --win
 
-      - name: Upload desktop artifacts
+      - name: Upload Windows installer
         uses: actions/upload-artifact@v4
         with:
-          name: SuatMerkezi-${{ matrix.os }}
-          path: release/**
+          name: SuatMerkezi-Windows
+          path: dist/*.exe
